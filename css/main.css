@@ -54,9 +54,21 @@ small {
     overflow: hidden;
 }
 
+/* give left space for menu sidebar */
 .l-content-constrained {
     padding-left: 270px;
 }
+
+.l-row {
+    display: table;
+    width: 100%;
+}
+
+.l-column {
+    display: table-cell;
+    vertical-align: top;
+}
+
 
 
 /* ======================================================== 
@@ -156,6 +168,20 @@ small {
     display: none;
 }
 
+.book-header {
+    border-bottom: 2px solid #ccc;
+}
+
+/* book title */
+.title {
+    font-size: 1.8em;
+    line-height: 1em;
+    padding-bottom: 0.2em;
+}
+/* fix the width of book details image */
+.thumb-image {
+    width: 220px;
+}
 
 /* ======================================================== 
 *               Classes describing state
