@@ -45,17 +45,17 @@
     <div class="categories l-sidebar standout">
 
         <ul>
-            <li><a href="">All</a></li>
-            <li><a href="">Science Fiction</a></li>
-            <li><a href="">Romance</a></li>
-            <li><a href="">Horror</a></li>
-            <li><a href="">Sport</a></li>
+            <li><a href="#category/all">All</a></li>
+            <li><a href="#category/scifi">Science Fiction</a></li>
+            <li><a href="#category/romance">Romance</a></li>
+            <li><a href="#category/horror">Horror</a></li>
+            <li><a href="#category/sport">Sport</a></li>
         </ul>
     </div>
     
-    <div class="books-wrapper">
+    <div class="books-wrapper" data-id="books-wrapper">
         <!-- books list -->
-        <div class="books l-content l-content-constrained">
+        <div class="books l-content l-content-constrained" data-id="books-list">
             <ul>
                 <!-- book list with thumbnail img -->
                 <li class="thumb">
@@ -125,7 +125,7 @@
             </ul>
         </div>
         <!-- single book detail -->
-        <div class="book is-visible">
+        <div class="book" data-id="book-detail">
             <!-- Book img and title -->
             <header class="book-header l-content l-content-constrained l-row">
 
@@ -153,6 +153,11 @@
             </div>
         </div>
     </div>      
-
+<script src="js/bootstrap.js"></script>
+<script src="js/routers/Router.js"></script>
+<script src="js/models/Books.js"></script>
+<script src="js/views/BooksList.js"></script>
+<!-- To start application -->
+<script src="js/App.js"></script>
 </body>
 </html>
