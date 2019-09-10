@@ -7,12 +7,12 @@ app.routers.Router = Backbone.Router.extend({
     },
 
     home: function(){
-        console.log("Home");
+        // console.log("Home");
     },
 
     //Book-list
     category: function(id) {
-        console.log("category " + id);
+        // console.log("category " + id);
 
         //Create a model from Booklist.js
         //provide null for model , option object with  {catId:id}, we want to save category id as catId
@@ -21,7 +21,7 @@ app.routers.Router = Backbone.Router.extend({
         app.data.books = new app.models.Books(null, {catId:id});
 
         //test call url() funcion in .Collection,Books.js 
-        console.log(app.data.books.url());
+        // console.log(app.data.books.url());
 
         //Clean up View
         this._cleanupCurrentView();
@@ -52,7 +52,7 @@ app.routers.Router = Backbone.Router.extend({
     //Book-detail
     book: function(id, bookId) {
         //check if we get the right URL path from .View
-        console.log("book " + bookId + " for categories " + id);
+        // console.log("book " + bookId + " for categories " + id);
         //create new model from Book.js
         // //tell the model to catch id from URL and pass as :bookId for book route
         app.data.book = new app.models.Book({ id: bookId});
@@ -71,7 +71,7 @@ app.routers.Router = Backbone.Router.extend({
     },
 
     unknown: function() {
-        console.log("Unknown route....");
+        // console.log("Unknown route....");
     },
 
 

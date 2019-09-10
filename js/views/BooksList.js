@@ -10,7 +10,7 @@ app.views.BooksList = Backbone.View.extend({
     },
 
     render: function(){
-        console.log("Bookslist:render");
+        // console.log("Bookslist:render");
 
         // console.log("category= " + this.collection.catId);
 
