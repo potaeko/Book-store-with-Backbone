@@ -9,12 +9,15 @@ app.routers.Router = Backbone.Router.extend({
     home: function(){
         console.log("Home");
     },
+
+    //Book-list
     category: function(id) {
         console.log("category " + id);
 
-        //Create a model to fetch data
-        //provide null for model , option object with  {catId: id}
+        //Create a model from Booklist.js
+        //provide null for model , option object with  {catId:id}, we want to save category id as catId
         //initialize in Backbone.Collection will receive the same parameter
+        //tell the model to catch catId from URL and pass as :id for category route
         app.data.books = new app.models.Books(null, {catId:id});
 
         //test call url() funcion in .Collection,Books.js 
@@ -45,8 +48,26 @@ app.routers.Router = Backbone.Router.extend({
         app.data.books.fetch({reset:true});
 
     },
+
+    //Book-detail
     book: function(id, bookId) {
+        //check if we get the right URL path from .View
         console.log("book " + bookId + " for categories " + id);
+        //create new model from Book.js
+        // //tell the model to catch id from URL and pass as :bookId for book route
+        app.data.book = new app.models.Book({ id: bookId});
+        //clean up the area
+        this._cleanupCurrentView();
+        //create new view fo rendering
+        app.data.currentView = new app.views.BookDetail({
+            //Provide the model to View
+            model: app.data.book
+        });
+        //make the book-detail visible
+        this._activateBookDetailPanel();
+        $('[data-id=book-detail]').empty().append(app.data.currentView.$el);
+
+        app.data.book.fetch();
     },
 
     unknown: function() {
@@ -56,15 +77,15 @@ app.routers.Router = Backbone.Router.extend({
 
     //Function add class="is-visible" to display 
 
-    _activateBookListPanel: function(selector){
+    _activateBookListPanel: function(){
         //remove class is-visible if presented in one of the children
         $('[data-id="books-wrapper"] .is-visible').removeClass('is-visible');
         $('[data-id=books-list]').addClass('is-visible');
     },
 
-    _activateBookDetailPanel: function(selector){
+    _activateBookDetailPanel: function(){
         //remove class is-visible if presented in one of the children
-        $('[data-id="books-wrapper"]' .is-visible).removeClass('is-visible');
+        $('[data-id="books-wrapper"] .is-visible').removeClass('is-visible');
         $('[data-id=book-detail]').addClass('is-visible');
     },
 

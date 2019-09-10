@@ -11,15 +11,21 @@ app.views.BooksList = Backbone.View.extend({
 
     render: function(){
         console.log("Bookslist:render");
+
+        // console.log("category= " + this.collection.catId);
+
         //cretae <ul>
         this.$el.html('<ul></ul>');
+
         //same as $('ul',this.$el) looking for ul in $el
         var $ul = this.$('ul');
+        //to get the book-detail, we match the route path in Router.js
+        var bookPath = "#category/" + this.collection.catId + "/book/";
 
         this.collection.each(function(model){
             $ul.append(
                 '<li class="thumb">' +
-                    '<a class="thumb-link" href="#">' +
+                    '<a class="thumb-link" href="'+ bookPath + model.get("id") + '">' +
                         '<span class="overlay"></span>'+
                             '<img src="' + model.get("volumeInfo").imageLinks.thumbnail+ '">' + 
                     '</a>'+ 
