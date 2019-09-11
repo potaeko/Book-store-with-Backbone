@@ -1,4 +1,7 @@
 app.views.BookDetail = Backbone.View.extend({
+    //uderscore template function
+    template: _.template($('script[data-id=book-detail-view]').html()),
+
     initialize: function(){
         //listenTo this model and run render when change
         this.listenTo(this.model, "change",  this.render);
@@ -15,29 +18,33 @@ app.views.BookDetail = Backbone.View.extend({
             publisher = info.publisher + ' - Publisher';
         }
 
-        this.$el.html(
-            '<header class="book-header l-content l-content-constrained l-row">' +
+        // this.$el.html(
+        //     '<header class="book-header l-content l-content-constrained l-row">' +
 
-                '<div class="l-column thumb-image">' +
-                    '<img src=" ' + (images.small|| images.thumbnail) + ' ">' +
-                '</div>'+
+        //         '<div class="l-column thumb-image">' +
+        //             '<img src=" ' + (images.small|| images.thumbnail) + ' ">' +
+        //         '</div>'+
 
-                '<div class="l-column l-pad">' +
-                    '<div class="title">' + info.title + '</div>' +
+        //         '<div class="l-column l-pad">' +
+        //             '<div class="title">' + info.title + '</div>' +
 
-                    '<div>' + 
-                    (info.authors ? '<em>' + info.authors.join(" - ") + '</em> - ' : "" + info.publishedDate) + '<br>' +
-                         publisher + ' - Publisher'+
-                    '</div>'+
-                '</div>' +
-            '</header>' +
+        //             '<div>' + 
+        //             (info.authors ? '<em>' + info.authors.join(" - ") + '</em> - ' : "" + info.publishedDate) + '<br>' +
+        //                  publisher + ' - Publisher'+
+        //             '</div>'+
+        //         '</div>' +
+        //     '</header>' +
            
-            '<div class="book-content l-content l-content-constrained standout">' +
-                '<h1 class="title">Description</h1>' +
-                '<p>' + info.description +'</p>' +
-            '</div>'
-        );
-
+        //     '<div class="book-content l-content l-content-constrained standout">' +
+        //         '<h1 class="title">Description</h1>' +
+        //         '<p>' + (info.description ? info.description : "not available") +'</p>' +
+        //     '</div>'
+        // );
+        this.$el.html( this.template({
+            info: info,
+            publisher: publisher,
+            images: images
+        }));
         return this;
     }
 });
