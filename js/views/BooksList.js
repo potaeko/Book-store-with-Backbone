@@ -14,8 +14,8 @@ app.views.BooksList = Backbone.View.extend({
 
         // console.log("category= " + this.collection.catId);
 
-        //cretae <ul>
-        this.$el.html('<ul></ul>');
+        //create <ul>
+        this.$el.html('<ul class="thumbs"></ul>');
 
         //same as $('ul',this.$el) looking for ul in $el
         var $ul = this.$('ul');

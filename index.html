@@ -31,17 +31,29 @@
             </span>
         </div>
 
-        <div class="topbar clearfix">
+        <div class="topbar clearfix" data-id="topbar">
             <span class="topbar-title l-sidebar l-pad">
+                    <a data-id="category-toggle" class="category-toggle" href="#"><i class="fas fa-bars"></i></a>
                     <i class="fas fa-book"></i>
                     <h2>Books</h2>
             </span>
+            <!-- menu left side bar -->
+            <div class="categories l-sidebar standout" data-id="categories">
+                <ul>
+                    <li><a data-id="category" href="#category/all">All</a></li>
+                    <li><a data-id="category" href="#category/scifi">Science Fiction</a></li>
+                    <li><a data-id="category" href="#category/romance">Romance</a></li>
+                    <li><a data-id="category" href="#category/horror">Horror</a></li>
+                    <li><a data-id="category" href="#category/sport">Sport</a></li>
+                </ul>
+            </div>
+
         </div>
 
         <div>
         </div>
     </header>
-    <!-- menu left side bar -->
+    <!-- menu left side bar
     <div class="categories l-sidebar standout">
 
         <ul>
@@ -51,12 +63,12 @@
             <li><a href="#category/horror">Horror</a></li>
             <li><a href="#category/sport">Sport</a></li>
         </ul>
-    </div>
+    </div> -->
     
     <div class="books-wrapper" data-id="books-wrapper">
         <!-- books list -->
         <div class="books l-content l-content-constrained" data-id="books-list">
-            <ul>
+            <ul class="thumbs">
                 <!-- book list with thumbnail img -->
                 <li class="thumb">
                     <a class="thumb-link" href="#">
@@ -185,6 +197,7 @@
 <script src="js/views/BooksList.js"></script>
 <script src="js/models/Book.js"></script>
 <script src="js/views/BookDetail.js"></script>
+<script src="js/views/Topbar.js"></script>
 <!-- To start application -->
 <script src="js/App.js"></script>
 </body>

@@ -55,9 +55,14 @@ small {
 }
 
 /* give left space for menu sidebar */
-.l-content-constrained {
+/* .l-content-constrained {
     padding-left: 270px;
-}
+} */
+    @media (min-width: 700px){
+        .l-content-constrained {
+            padding-left: 270px;
+        }
+    }
 
 .l-row {
     display: table;
@@ -65,9 +70,15 @@ small {
 }
 
 .l-column {
-    display: table-cell;
+    /* web responsive */
+    /* display: table-cell; */
     vertical-align: top;
-}
+    }
+    @media (min-width: 500px){
+        .l-column {
+            display: table-cell;
+        }
+    }
 
 
 
@@ -116,22 +127,38 @@ small {
     font-weight: 300;
     color: #fff;
     background-color: #1aa1e1;
+    /* web responsive
     float: left;
+    } */
+    display: inline-block;
     }
-    .topbar-title > i {
+
+    .topbar-title i {
         font-size: 1.5em;
         margin-right: 0.5em;
     }
     .topbar-title > h2 {
         display: inline-block;
     }
+    @media (min-width: 700px){
+        .category-toggle {
+            display:none;
+        }
+    }
+
     
 .categories {
+    /* web responsive */
+    display: none;
+
     position: absolute;
     z-index: 100;
     font-size: 1.2em;
     line-height: 2em;
     padding: 0.5em 0;
+    }
+    @media (min-width: 700px) {
+        .categories {display: block; }
     }
 
     .categories a {
@@ -145,9 +172,16 @@ small {
         background-color: #e5e5e5;
     }
 
+.thumbs{
+    text-align: center;
+}
+
 .thumb {
+    /* web responsive */
+    display:inline-block;
     /* image is a block element */
-    float:left;
+    /* float:left; */
+
     /* fix the height for image same size */
     height: 207px;
     /* space between book images */
@@ -181,7 +215,12 @@ small {
 /* fix the width of book details image */
 .thumb-image {
     width: 220px;
-}
+    }
+
+    .thumb-image > img {
+        width:100%;
+        display: block;
+    }
 
 /* ======================================================== 
 *               Classes describing state
