@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/7.4.2/sinon.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foogle-Book-store Mocha Unit Tests</title>
+</head>
+<body>
+
+<div id="mocha"></div>
+
+<script>
+mocha.setup("bdd");
+//provided by Chaijs
+expect = chai.expect;
+assert = chai.assert;
+
+//create a function callback when the windows is being completely 
+//loaded will call the function run our global Mocha object
+window.onload = function(){
+    window.mocha.run();
+}
+</script>
+
+
+    <!-- dynamic HTML with underscore template -->
+<script type="text/html" data-id="book-detail-view">
+    <header class="book-header l-content l-content-constrained l-row">
+        <div class="l-column thumb-image">
+            <img src="<%= (images.small|| images.thumbnail) %>">
+        </div>
+
+        <div class="l-column l-pad">
+            <div class="title"> <%= info.title %></div>
+
+            <div> 
+                <%= (info.authors ? "<em>" + info.authors.join(" - ") +  "</em> - " : "" + info.publishedDate) %> 
+                <br>
+                <%= publisher + "- Publisher" %>
+            </div>
+        </div>
+    </header>
+   
+    <div class="book-content l-content l-content-constrained standout">
+        <h1 class="title">Description</h1>
+        <p> <%= (info.description ? info.description : "not available")%> </p>
+    </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+
+<script src="js/bootstrap.js"></script>
+<script src="js/routers/Router.js"></script>
+<script src="js/models/Books.js"></script>
+<script src="js/views/BooksList.js"></script>
+<script src="js/models/Book.js"></script>
+<script src="js/views/BookDetail.js"></script>
+<script src="js/views/Topbar.js"></script>
+<!-- test file -->
+<script src="test/tests.js"></script>
+</body>
+</html>

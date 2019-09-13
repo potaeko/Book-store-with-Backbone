@@ -15,7 +15,7 @@ app.routers.Router = Backbone.Router.extend({
         // console.log("category " + id);
 
         //Create a model from Booklist.js
-        //provide null for model , option object with  {catId:id}, we want to save category id as catId
+        //*provide null for model , option object with  {catId:id}, we want to save category id as catId
         //initialize in Backbone.Collection will receive the same parameter
         //tell the model to catch catId from URL and pass as :id for category route
         app.data.books = new app.models.Books(null, {catId:id});
